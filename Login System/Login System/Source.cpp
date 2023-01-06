@@ -38,18 +38,34 @@ void menu() {
 }
 
 void signIn() {
+	cout << "\nSign In Menu\n\n";
+	cout << "Enter username\n> ";
+	string username;
+	cin >> username;
+	cout << "Enter password\n> ";
+	string password;
+	cin >> password;
+	string loginInfo = username + " " + password;
 
+	ifstream Users("users.txt");
+	string query;
+	while (getline(Users, query)) {
+		string textLine = getline(Users, query);
+		if (loginInfo.compare(getline(Users, query)) {
+
+		}
+	}
 }
 
 void registration() {
+	ofstream Users("users.txt");
 	string username;
-	cout << "Registration Menu\n\nPassword must be 8 characters\n";
+	cout << "\nRegistration Menu\n\nPassword must be 8 characters\n";
 	cout << "Enter a username\n> ";
 	cin >> username;
-	ofstream fin(username);
 	string password = pswdvalidation("Enter a password\n> ",8);
-	fin << username + " " + password;
-	fin.close();
+	Users << username + " " + password;
+	Users.close();
 }
 
 string pswdvalidation(string msg, int length) {
